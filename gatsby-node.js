@@ -3,19 +3,13 @@ const path = require('path');
 exports.createPages = ({boundActionCreators, graphql}) => {
   const {createPage} = boundActionCreators;
 
-  const postTemplate = path.resolve('src/components/post.js');
+  const postTemplate = path.resolve('src/templates/blog-post.js');
 
   return graphql(`{
-    allMarkdownRemark {
+    allMongodbGatsbyBlogPosts {
       edges {
         node {
-          html
           id
-          frontmatter {
-            path
-            title
-            date
-          }
         }
       }
     }
@@ -25,10 +19,13 @@ exports.createPages = ({boundActionCreators, graphql}) => {
       return Promise.reject(res.errors)
     }
 
-    res.data.allMarkdownRemark.edges.forEach(({node})=> {
+    res.data.allMongodbGatsbyBlogPosts.edges.forEach(({node})=> {
       createPage({
-        path: node.frontmatter.path,
-        component: postTemplate
+        path: `/posts/${node.id}`,
+        component: postTemplate,
+        context: {
+          id: node.id
+        },
       })
     })
   })

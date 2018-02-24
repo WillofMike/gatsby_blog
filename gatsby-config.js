@@ -15,9 +15,17 @@ module.exports = {
     {
       resolve: `gatsby-source-mongodb`,
         options: {
-          dbName: `gatsbydb`,
-          collection: `user`,
-          server: { address:"https://gatsby-api.herokuapp.com"  port: 80 }
+          map: { posts: { description: `text/markdown`}},
+          dbName: `gatsby_blog`,
+          collection: `posts`,
+          server: {
+            address: "ds147668.mlab.com",
+            port: 47668,
+          },
+          auth: {
+            user: 'admin',
+            password: 'yes'
+          },
         },
     },
     `gatsby-transformer-remark`,

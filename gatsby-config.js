@@ -12,6 +12,14 @@ module.exports = {
        name: 'pages',
       }
     },
+    {
+      resolve: `gatsby-source-mongodb`,
+        options: {
+          dbName: `gatsbydb`,
+          collection: `user`,
+          server: { address:"https://gatsby-api.herokuapp.com"  port: 80 }
+        },
+    },
     `gatsby-transformer-remark`,
   ],
 };

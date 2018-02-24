@@ -3,18 +3,22 @@ import Link from 'gatsby-link'
 
 const IndexPage = ({data}) => (<div>
   <h1>Hello Bloggers</h1>
-  <p>Welcome to your new Gatsby site.</p>
+  <p>Welcome to your Gatsby Blog!</p>
   <p>Now do some bloggin!</p>
-  <Link
-    to="/page-2/"
-    style={{
-      textDecoration: 'none',
-    }}
-  >
-    Create a Post!
-  </Link>
+  <h3>
+    <Link
+      to="/page-2/"
+      style={{
+        textDecoration: 'none',
+      }}
+    >
+      Create a Post!
+    </Link>
+  </h3>
 
+<div id="allPosts">
   <h2>All Posts</h2>
+</div>
   <ul>
     { data.allMongodbGatsbyBlogPosts.edges.map(edge => (
       <li key={edge.node.id}>

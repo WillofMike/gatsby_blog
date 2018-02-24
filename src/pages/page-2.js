@@ -29,14 +29,18 @@ class SecondPage extends React.Component {
         <h2>Create a Post</h2>
           <label>
             Blog Title:
-            <input type="text" name="title" onChange={this.setTitle} />
+            <br />
+          <input type="text" name="title" placeholder="What is your title?" onChange={this.setTitle} />
           </label>
           <label>
             <br />
             Blog Description:
-            <textarea name="description" onChange={this.setDesc} />
+            <br />
+          <textarea cols="50" rows="10" name="description" placeholder="Make sure to use Markdown! Blog Away!" onChange={this.setDesc} />
           </label>
+          <br />
           <button onClick={this.submit}>SUBMIT</button>
+          <br />
         <Link
           to="/"
           style={{ textDecoration: 'none' }}

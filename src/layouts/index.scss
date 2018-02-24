@@ -384,6 +384,13 @@ p {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
+#allPosts {
+  h2 {
+
+    display: flex;
+    align-content: center;
+  }
+}
 figure {
   margin-left: 0;
   margin-right: 0;
